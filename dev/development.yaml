@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: paybay-backend
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: paybay-backend
+  template:
+    metadata:
+      labels:
+        app: paybay-backend
+    spec:
+      containers:
+        - image: larsenclarencedsouza/paybay:1
+          name: paybay-backend
+          ports:
+            - containerPort: 80
