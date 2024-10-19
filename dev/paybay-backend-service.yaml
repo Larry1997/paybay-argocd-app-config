@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: paybay-backend-service
+  namespace: default  # Change this to the appropriate namespace if needed
+spec:
+  selector:
+    app: paybay-backend  # This should match the labels in your Deployment
+  ports:
+    - protocol: TCP
+      port: 80           # The port that the Service will expose
+      targetPort: 80     # The port on the Pods to forward traffic to
+  type: ClusterIP       # Default type, accessible only within the cluster
